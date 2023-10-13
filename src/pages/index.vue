@@ -35,10 +35,10 @@ function create() {
   creating_room.value = true;
   createRoom(room_title.value)
     .then((data) => {
+      room_title.value = "";
       router.push({ name: "room", params: { id: data.id } });
     })
     .finally(() => {
-      room_title.value = "";
       creating_room.value = false;
     });
 }
